@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery仿电子印章在线制作代码 - 站长素材</title>
+<link href="jquery.zsign.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script>
+ <script src="js/jquery.zsign.js" type="text/javascript"></script> 
+   <script type="application/javascript" src="js/html2canvas.min.js"></script>
+</head>
+<body>
+<INPUT  type="button" id="btnsave" value="保存" />
+<div id="test" style="width:595px;height:418px;border:1px solid red;margin:40px auto; position:relative;">
+<img src="images/asd233234.png" />
+</div>
+<script>
+var a =$("#test").zSign({ img: 'images/1.png'});
+    /**
+     * create by lrj   
+     * @param source    要转换为图片的dom对象
+     * @param image     要显示图片的img标签
+     */
+    function html2image(source,image) {
+        html2canvas(source).then(function(canvas) {
+			      document.body.appendChild(canvas);
+    });
+	};
+	
+$(function(){
+
+$("#btnsave").click(function(){
+  //要转换为图片的dom对象
+    var element = document.querySelector('#test');
+    //要显示图片的img标签
+    var image = document.querySelector('#img');
+    //调用html2image方法
+    html2image(element,image);
+
+});
+});
+  
+
+
+    
+    
+</script>
+
+
+</body>
+</html>
